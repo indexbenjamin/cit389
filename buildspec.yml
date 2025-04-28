@@ -10,8 +10,7 @@ phases:
 
   build:
     commands:
-      - shopt -s extglob dotglob
-      - cp -r !(package) ./package/
+      - rsync -av --exclude package ./ ./package/
       - cd package
       - zip -r ../app.zip .
 
