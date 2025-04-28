@@ -11,7 +11,8 @@ phases:
 
   build:
     commands:
-      - cp -r * ./package/
+      - shopt -s dotglob
+      - cp -r !(package) ./package/
       - cd package
       - zip -r ../app.zip .
 
