@@ -1,6 +1,5 @@
 version: 0.2
 
-
 phases:
   install:
     runtime-versions:
@@ -11,7 +10,7 @@ phases:
 
   build:
     commands:
-      - shopt -s dotglob
+      - shopt -s extglob dotglob
       - cp -r !(package) ./package/
       - cd package
       - zip -r ../app.zip .
