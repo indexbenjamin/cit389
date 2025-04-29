@@ -13,6 +13,7 @@ phases:
       - rsync -av --exclude package ./ ./package/
       - cd package
       - zip -r ../app.zip .
+      
 
 artifacts:
   files:
