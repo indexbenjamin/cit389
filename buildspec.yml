@@ -6,15 +6,12 @@ phases:
       python: 3.11
     commands:
       - pip install --upgrade pip
-      - pip install -r requirements.txt -t ./package
+      - pip install -r requirements.txt
 
-  build:
-    commands:
-      - rsync -av --exclude package ./ ./package/
-      - cd package
-      - zip -r ../app.zip .
-      
-
+# no manual zip in ‘build’ phase at all
 artifacts:
+  # point to your project root
+  base-directory: .  
   files:
-    - app.zip
+    - '**/*'      # include everything
+  discard-paths: no  # preserve subfolders
